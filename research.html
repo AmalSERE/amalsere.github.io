@@ -18,13 +18,15 @@
       --border: #dddbd5;
       --accent: #2a5c8f;
       --accent-light: #e8f0f8;
+      --bordeaux: #7d2038;
+      --bordeaux-light: #f5e8ec;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       font-size: 16px;
       color: var(--black);
-      background: #fff;
+      background: #faf8f9;
       line-height: 1.7;
       max-width: 680px;
       margin: 0 auto;
@@ -41,14 +43,14 @@
       font-size: 14px;
       color: var(--muted);
       text-decoration: none;
-      padding: 10px 0;
-      margin-right: 28px;
-      border-bottom: 2px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
+      padding: 8px 14px;
+      margin-right: 4px;
+      border-radius: 6px 6px 0 0;
+      transition: color 0.15s, background 0.15s;
     }
 
     nav a:hover { color: var(--black); }
-    nav a.active { color: var(--black); font-weight: 500; border-bottom-color: var(--black); }
+    nav a.active { background: var(--bordeaux-light); color: var(--bordeaux); font-weight: 500; }
 
     h1 {
       font-family: 'Lora', serif;
