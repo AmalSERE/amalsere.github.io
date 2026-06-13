@@ -10,87 +10,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital@0;1&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black: #1a1a1a; --muted: #6b6b6b; --border: #dddbd5;
-      --bordeaux: #7d2038; --bordeaux-light: #f5e8ec;
-    }
-    body { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--black); background: #faf8f9; line-height: 1.7; margin: 0; padding: 0; min-height: 100vh; }
-
-    .page { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; min-height: 100vh; }
-
-    .sidebar { background: #fff; border-right: 1px solid var(--border); padding: 40px 20px 40px 24px; display: flex; flex-direction: column; align-items: center; }
-    .photo-box { width: 140px; height: 140px; border-radius: 50%; background: #ede8e9; border: 3px solid var(--bordeaux-light); display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 16px; overflow: hidden; flex-shrink: 0; }
-    .photo-box svg { width: 48px; height: 48px; stroke: #c0a8b0; }
-    .photo-box span { font-size: 11px; color: #c0a8b0; margin-top: 6px; }
-    .s-name { font-family: 'Lora', serif; font-size: 15px; font-weight: 400; color: var(--black); text-align: center; margin-bottom: 4px; }
-    .s-role { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.5; margin-bottom: 3px; }
-    .s-univ { font-size: 12px; color: var(--bordeaux); text-align: center; margin-bottom: 14px; }
-    .s-badge { display: inline-block; font-size: 11px; font-weight: 500; background: var(--bordeaux-light); color: var(--bordeaux); padding: 3px 10px; border-radius: 20px; margin-bottom: 20px; text-align: center; }
-    .s-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 16px; }
-    .contact-links { width: 100%; }
-    .contact-links a { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); text-decoration: none; padding: 6px 8px; border-radius: 6px; margin-bottom: 2px; transition: color 0.15s, background 0.15s; word-break: break-all; }
-    .contact-links a:hover { color: var(--bordeaux); background: var(--bordeaux-light); }
-    .contact-links a svg { width: 15px; height: 15px; flex-shrink: 0; stroke: #b89aa2; }
-
-    .right { display: flex; flex-direction: column; }
-    nav { display: flex; border-bottom: 1px solid var(--border); padding: 0 40px; margin-top: 40px; }
-    nav a { font-size: 14px; color: var(--muted); text-decoration: none; padding: 8px 14px; margin-right: 4px; border-radius: 6px 6px 0 0; transition: color 0.15s, background 0.15s; }
-    nav a:hover { color: var(--black); }
-    nav a.active { background: var(--bordeaux-light); color: var(--bordeaux); font-weight: 500; }
-
-    .main { padding: 44px 40px 80px; }
-
-    h1 { font-family: 'Lora', serif; font-size: 26px; font-weight: 400; margin-bottom: 40px; }
-    h2 { font-size: 11px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
-    .paper { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
-    .paper:last-of-type { border-bottom: none; }
-    .paper-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 400; color: var(--black); margin-bottom: 12px; line-height: 1.5; }
-    .paper-abstract { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
-    .paper-presented { font-size: 13px; color: var(--muted); padding-left: 12px; border-left: 2px solid var(--border); line-height: 1.6; }
-    .paper-presented strong { color: var(--black); font-weight: 500; }
-    .wip-section { margin-top: 48px; }
-    .wip-item { font-size: 15px; font-family: 'Lora', serif; font-style: italic; color: var(--muted); padding: 16px 0; border-bottom: 1px solid var(--border); }
-
-    @media (max-width: 640px) {
-      .page { grid-template-columns: 1fr; }
-      .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
-      nav { padding: 0 16px; margin-top: 24px; }
-      .main { padding: 28px 16px 60px; }
-    }
+    :root { --black:#1a1a1a; --muted:#6b6b6b; --border:#dddbd5; --bordeaux:#7d2038; --bordeaux-light:#f5e8ec; }
+    body { font-family:'Inter',sans-serif; font-size:16px; color:var(--black); background:#faf8f9; line-height:1.7; margin:0; padding:0; min-height:100vh; }
+    .page { display:flex; min-height:100vh; max-width:1100px; margin:0 auto; }
+    .right { flex:1; display:flex; flex-direction:column; min-width:0; }
+    nav { display:flex; border-bottom:1px solid var(--border); padding:0 40px; margin-top:40px; }
+    nav a { font-size:14px; color:var(--muted); text-decoration:none; padding:8px 14px; margin-right:4px; border-radius:6px 6px 0 0; transition:color 0.15s,background 0.15s; }
+    nav a:hover { color:var(--black); }
+    nav a.active { background:var(--bordeaux-light); color:var(--bordeaux); font-weight:500; }
+    .main { padding:44px 40px 80px; }
+    h1 { font-family:'Lora',serif; font-size:26px; font-weight:400; margin-bottom:40px; }
+    h2 { font-size:11px; font-weight:500; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+    .paper { margin-bottom:40px; padding-bottom:40px; border-bottom:1px solid var(--border); }
+    .paper:last-of-type { border-bottom:none; }
+    .paper-title { font-family:'Lora',serif; font-size:17px; font-weight:400; color:var(--black); margin-bottom:12px; line-height:1.5; }
+    .paper-abstract { font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:14px; }
+    .paper-presented { font-size:13px; color:var(--muted); padding-left:12px; border-left:2px solid var(--border); line-height:1.6; }
+    .paper-presented strong { color:var(--black); font-weight:500; }
+    .wip-section { margin-top:48px; }
+    .wip-item { font-size:15px; font-family:'Lora',serif; font-style:italic; color:var(--muted); padding:16px 0; border-bottom:1px solid var(--border); }
+    @media (max-width:640px) { .page { flex-direction:column; } nav { padding:0 16px; margin-top:24px; } .main { padding:28px 16px 60px; } }
   </style>
 </head>
 <body>
 <div class="page">
-
-  <div class="sidebar">
-    <div class="photo-box">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.1">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A8.966 8.966 0 0112 15c2.21 0 4.229.797 5.879 2.108M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-      </svg>
-      <span>Photo</span>
-    </div>
-    <p class="s-name">Amal Séré</p>
-    <p class="s-role">PhD Candidate in Economics</p>
-    <p class="s-univ">Université de Montréal</p>
-    <span class="s-badge">Job market 2026–2027</span>
-    <div class="s-divider"></div>
-    <div class="contact-links">
-      <a href="mailto:amal.amatullah.manaar.sere@umontreal.ca">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-        </svg>
-        amal.amatullah.manaar.sere@umontreal.ca
-      </a>
-      <a href="http://www.linkedin.com/in/amal-sere-970008124" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-          <circle cx="4" cy="4" r="2" stroke-width="1.8" fill="none"/>
-        </svg>
-        LinkedIn
-      </a>
-    </div>
-  </div>
-
+        <div style="background:#fff; border-right:1px solid #dddbd5; width:220px; flex-shrink:0; padding:36px 0; display:flex; flex-direction:column; align-items:center; min-height:100vh;">
+        <div style="width:130px; height:130px; border-radius:50%; background:#ede8e9; border:3px solid #f5e8ec; display:flex; flex-direction:column; align-items:center; justify-content:center; margin-bottom:16px; overflow:hidden; flex-shrink:0;">
+          <!-- Remplace ce bloc par : <img src="photo.jpg" alt="Amal Séré" style="width:100%;height:100%;object-fit:cover;"> -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.1" style="width:48px;height:48px;stroke:#c0a8b0;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A8.966 8.966 0 0112 15c2.21 0 4.229.797 5.879 2.108M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <span style="font-size:11px;color:#c0a8b0;margin-top:6px;">Photo</span>
+        </div>
+        <p style="font-family:'Lora',serif;font-size:15px;font-weight:400;color:#1a1a1a;text-align:center;margin-bottom:3px;">Amal Séré</p>
+        <p style="font-size:12px;color:#6b6b6b;text-align:center;white-space:nowrap;margin-bottom:3px;">PhD Candidate in Economics</p>
+        <p style="font-size:12px;color:#7d2038;text-align:center;margin-bottom:14px;">Université de Montréal</p>
+        <span style="font-size:11px;font-weight:500;background:#f5e8ec;color:#7d2038;padding:3px 10px;border-radius:20px;margin-bottom:20px;white-space:nowrap;">Job market 2026–2027</span>
+        <div style="width:100%;height:1px;background:#dddbd5;margin-bottom:16px;"></div>
+        <a href="mailto:amal.amatullah.manaar.sere@umontreal.ca" style="display:flex;align-items:center;justify-content:center;gap:7px;font-size:11px;color:#6b6b6b;text-decoration:none;padding:5px 0;width:100%;margin-bottom:6px;transition:color 0.15s;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#b89aa2" stroke-width="1.8" style="width:14px;height:14px;flex-shrink:0;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          amal...@umontreal.ca
+        </a>
+        <a href="http://www.linkedin.com/in/amal-sere-970008124" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:7px;font-size:11px;color:#6b6b6b;text-decoration:none;padding:5px 0;width:100%;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#b89aa2" stroke-width="1.8" style="width:14px;height:14px;flex-shrink:0;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+            <circle cx="4" cy="4" r="2" stroke-width="1.8" fill="none"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
   <div class="right">
     <nav>
       <a href="index.html">Home</a>
@@ -116,7 +86,6 @@
       </div>
     </div>
   </div>
-
 </div>
 </body>
 </html>
